@@ -1,0 +1,16 @@
+{
+    "sepolia":
+    {
+        "01_owner": "0x888D768764A2E304215247F0bA3457cCb0f0ab4f",
+        "02_preMintReceiver": "0x888D768764A2E304215247F0bA3457cCb0f0ab4f",
+        "03_heroglyphRelay": "0xa30cCE750cbE9664A0e46C323Fa2ed5376B25A93",
+        "04_feePayer": "0x0000000000000000000000000000000000000000"
+    },
+    "arbitrum":
+    {
+        "01_owner": "0x888D768764A2E304215247F0bA3457cCb0f0ab4f",
+        "02_preMintReceiver": "0x888D768764A2E304215247F0bA3457cCb0f0ab4f",
+        "03_heroglyphRelay": "0xa30cCE750cbE9664A0e46C323Fa2ed5376B25A93",
+        "04_feePayer": "0x0000000000000000000000000000000000000000"
+    }
+}
