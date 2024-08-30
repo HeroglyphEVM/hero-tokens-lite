@@ -14,8 +14,8 @@ import { BaseHeroERC20 } from "../BaseHeroERC20.sol";
  * years.
  */
 contract HeroERC20Fixed is BaseHeroERC20 {
-  uint256 public rewardPerBlock;
-  uint256 public maxBonusRewardAfterOneDay;
+  uint256 public immutable rewardPerBlock;
+  uint256 public immutable maxBonusRewardAfterOneDay;
 
   uint32 public lastEthereumMintedBlock;
   uint32 public lastUnixTimeRewarded;
@@ -62,12 +62,15 @@ contract HeroERC20Fixed is BaseHeroERC20 {
     view
     returns (uint256 rewardToMint_)
   {
-    uint256 bonusRate = maxBonusRewardAfterOneDay / 1 days;
-    uint256 timePassed = (_timestamp - lastUnixTimeRewarded);
-    uint256 bonus = timePassed * bonusRate;
+    uint256 bonus = 0;
 
-    if (bonus > maxBonusRewardAfterOneDay) {
-      bonus = maxBonusRewardAfterOneDay;
+    if (_timestamp > lastUnixTimeRewarded) {
+      uint256 timePassed = (_timestamp - lastUnixTimeRewarded);
+      bonus = timePassed * maxBonusRewardAfterOneDay / 1 days;
+
+      if (bonus > maxBonusRewardAfterOneDay) {
+        bonus = maxBonusRewardAfterOneDay;
+      }
     }
 
     rewardToMint_ = rewardPerBlock + bonus;

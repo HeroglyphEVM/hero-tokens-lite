@@ -134,9 +134,8 @@ contract HeroERC20FixedTest is BaseTest {
 
     skip(1 days / 3);
 
-    uint256 bonusRate = MAX_BONUS_FULL_DAY / 1 days;
     uint256 timePassed = (block.timestamp - underTest.lastUnixTimeRewarded());
-    uint256 expectedReward = REWARD_PER_BLOCK + (timePassed * bonusRate);
+    uint256 expectedReward = REWARD_PER_BLOCK + (timePassed * MAX_BONUS_FULL_DAY / 1 days);
 
     underTest.onValidatorTriggered(0, blockNumber, validator, 0);
 
@@ -150,9 +149,8 @@ contract HeroERC20FixedTest is BaseTest {
 
     skip(1 days - 3000);
 
-    uint256 bonusRate = MAX_BONUS_FULL_DAY / 1 days;
     uint256 timePassed = (block.timestamp - underTest.lastUnixTimeRewarded());
-    uint256 expectedReward = REWARD_PER_BLOCK + (timePassed * bonusRate);
+    uint256 expectedReward = REWARD_PER_BLOCK + (timePassed * MAX_BONUS_FULL_DAY / 1 days);
 
     assertEq(underTest.getPendingReward(), expectedReward);
 
