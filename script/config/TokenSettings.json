@@ -1,0 +1,10 @@
+[
+    {
+        "01_name": "Test Hero Deployment",
+        "02_symbol": "THD",
+        "03_maxSupply": 480100000000000000000000,
+        "04_preMintAmount": 250000000000000000000,
+        "05_rewardPerBlock": 2500000000000000000,
+        "06_maxBonusFullDay":1000000000000000000
+    }
+]
